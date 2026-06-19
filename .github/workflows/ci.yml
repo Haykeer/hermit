@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "codex/**"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    env:
+      VITE_HERMIT_BUILDER_WALLET: "0x4419f739aa8d9e9098fe85caaf58af46ea0ac41f"
+      VITE_HERMIT_MASTER_ADDRESS: "0x4419f739aa8d9e9098fe85caaf58af46ea0ac41f"
+      VITE_HL_TESTNET_API: "https://api.hyperliquid-testnet.xyz"
+      VITE_HL_TESTNET_WS: "wss://api.hyperliquid-testnet.xyz/ws"
+      VITE_HL_TESTNET_APP: "https://app.hyperliquid-testnet.xyz"
+      VITE_ENABLE_LIVE_TESTNET: "false"
+      VITE_ENABLE_BUILDER_FEE: "false"
+      VITE_WALLETCONNECT_PROJECT_ID: "ci-placeholder"
+      VITE_HERMIT_SIGNER_BASE_URL: "http://127.0.0.1:8787"
+      HERMIT_HL_MASTER_ADDRESS: "0x4419f739aa8d9e9098fe85caaf58af46ea0ac41f"
+      HERMIT_HL_API_WALLET_ADDRESS: "0x0000000000000000000000000000000000000001"
+      HERMIT_HL_AGENT_NAME: "hermit-james-wynn-testnet"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Write CI env
+        run: |
+          {
+            echo "VITE_HERMIT_BUILDER_WALLET=$VITE_HERMIT_BUILDER_WALLET"
+            echo "VITE_HERMIT_MASTER_ADDRESS=$VITE_HERMIT_MASTER_ADDRESS"
+            echo "VITE_HL_TESTNET_API=$VITE_HL_TESTNET_API"
+            echo "VITE_HL_TESTNET_WS=$VITE_HL_TESTNET_WS"
+            echo "VITE_HL_TESTNET_APP=$VITE_HL_TESTNET_APP"
+            echo "VITE_ENABLE_LIVE_TESTNET=$VITE_ENABLE_LIVE_TESTNET"
+            echo "VITE_ENABLE_BUILDER_FEE=$VITE_ENABLE_BUILDER_FEE"
+            echo "VITE_WALLETCONNECT_PROJECT_ID=$VITE_WALLETCONNECT_PROJECT_ID"
+            echo "VITE_HERMIT_SIGNER_BASE_URL=$VITE_HERMIT_SIGNER_BASE_URL"
+            echo "HERMIT_HL_MASTER_ADDRESS=$HERMIT_HL_MASTER_ADDRESS"
+            echo "HERMIT_HL_API_WALLET_ADDRESS=$HERMIT_HL_API_WALLET_ADDRESS"
+            printf "HERMIT_HL_API_WALLET_PRIVATE_KEY=0x%064d\n" 1
+            echo "HERMIT_HL_AGENT_NAME=$HERMIT_HL_AGENT_NAME"
+          } > .env.local
+
+      - name: Config check
+        run: npm run check:config
+
+      - name: Build
+        run: npm run build
