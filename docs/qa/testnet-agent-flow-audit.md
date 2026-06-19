@@ -16,9 +16,9 @@ Verdict: `ready`
 - Master wallet: `0x4419f739aa8d9e9098fe85caaf58af46ea0ac41f`
 - API wallet: `0xE59466C744c919D36B13F4dd7C673b582727848D`
 - Builder wallet: `0x4419f739aa8d9e9098fe85caaf58af46ea0ac41f`
-- Account value sampled by audit: `1353.005871`
+- Account value sampled by audit: `1325.786352`
 - Builder fee approval: `maxBuilderFee = 10`
-- Open testnet position: `BTC` long `0.0002`, entry `64220.0`
+- Open testnet position: `BTC` long `0.0002`, entry `64220.0`, sampled position value `12.6256`
 - Existing additional position: `ETH` short `-3.345`
 
 ## Passing Checks

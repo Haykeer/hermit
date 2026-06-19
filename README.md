@@ -38,6 +38,11 @@ npm run testnet:agent-flow:audit
 
 Vercel deployment uses `vercel.json` with `npm ci`, `npm run build`, and `dist` output. Only public `VITE_` variables belong in Vercel; Hyperliquid API wallet keys stay in `.env.local` or a separate signer service secret store. See `docs/deployment-vercel.md`.
 
+## Review Materials
+
+- `docs/pr-description.md` contains the PR body for the readiness branch.
+- `docs/release-readiness.md` contains the final pre-merge checklist and cleanup command for the BTC test position.
+
 ## Current State
 
 This version has a working simulation UI plus a local signer path for Hyperliquid testnet validation. The James Wynn API wallet is approved, builder-fee approval is active, and a small real BTC testnet position has been opened to verify the route.
