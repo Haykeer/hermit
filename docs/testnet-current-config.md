@@ -35,7 +35,7 @@ Vercel static deployment is configured through `vercel.json`. The deployed front
 ## Latest Hyperliquid State
 
 - Builder fee approval is active: `maxBuilderFee` is `10`.
-- Master wallet perps account is funded. Latest sampled account value: `1325.786352`.
+- Master wallet perps account is funded. Latest sampled account value: `1346.824052`.
 - API wallet order route executed successfully without the optional builder field.
 - Builder-fee order route dry-run now passes with `builder: { b: 0x4419..., f: 10 }`.
 - BTC reduce-only close dry-run now passes and can be executed if we need to clean up the test position.
