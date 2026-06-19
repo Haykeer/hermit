@@ -1,0 +1,31 @@
+{
+  "name": "hermit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check:config": "node scripts/check-config.mjs",
+    "generate:api-wallet": "node scripts/generate-api-wallet.mjs",
+    "set:public-config": "node scripts/set-public-config.mjs",
+    "signer:dev": "node scripts/signer-service.mjs",
+    "check:hyperliquid": "node scripts/check-hyperliquid-testnet.mjs",
+    "testnet:order:dry-run": "node scripts/testnet-order-route.mjs",
+    "testnet:order:execute": "node scripts/testnet-order-route.mjs --execute",
+    "testnet:order:dry-run:builder": "node scripts/testnet-order-route.mjs --with-builder",
+    "testnet:position:close:dry-run": "node scripts/testnet-position-close.mjs",
+    "testnet:position:close:execute": "node scripts/testnet-position-close.mjs --execute",
+    "testnet:agent-flow:audit": "node scripts/testnet-agent-flow-audit.mjs"
+  },
+  "dependencies": {
+    "@nktkas/hyperliquid": "^0.32.2",
+    "@vitejs/plugin-react": "^5.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "^5.9.3",
+    "viem": "^2.52.2",
+    "vite": "^7.2.7"
+  }
+}
