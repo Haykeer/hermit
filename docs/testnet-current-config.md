@@ -30,6 +30,8 @@ npm run signer:dev
 
 The local signer service, browser Execution panel, and repeatable agent-flow audit were validated against the live testnet account.
 
+Vercel static deployment is configured through `vercel.json`. The deployed frontend remains keyless; real testnet signing stays in the local signer or a future dedicated signer backend.
+
 ## Latest Hyperliquid State
 
 - Builder fee approval is active: `maxBuilderFee` is `10`.

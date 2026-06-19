@@ -106,6 +106,10 @@ npm run testnet:position:close:execute -- --coin=BTC
 
 For UI validation, run `npm run dev` and `npm run signer:dev`, then use the `Testnet execution` panel. The browser calls only the local signer service; the API wallet private key stays server-side in `.env.local`.
 
+## Vercel Frontend Deployment
+
+Use `vercel.json` for the static Vite deployment. Configure only public `VITE_` values in Vercel. Do not put `HERMIT_HL_API_WALLET_PRIVATE_KEY` or any server-only signer values in the Vercel frontend environment. See `docs/deployment-vercel.md`.
+
 ## Official References
 
 - Hyperliquid exchange endpoint: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
