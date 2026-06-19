@@ -18,6 +18,22 @@ npm run dev
 
 Copy `.env.example` to `.env.local` when enabling real testnet integration. Keep API wallet private keys in `.env.local` only.
 
+## Verification
+
+Public CI runs the secret-free build gate:
+
+```bash
+npm ci
+npm run check:config
+npm run build
+```
+
+The live testnet readiness gate stays local because it needs the server-only API wallet key:
+
+```bash
+npm run testnet:agent-flow:audit
+```
+
 ## Current State
 
 This version has a working simulation UI plus a local signer path for Hyperliquid testnet validation. The James Wynn API wallet is approved, builder-fee approval is active, and a small real BTC testnet position has been opened to verify the route.

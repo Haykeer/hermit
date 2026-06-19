@@ -32,6 +32,6 @@ The James Wynn Agent should not simply maximize leverage. It should express:
 
 The current app mock book uses BTC 25x, ETH 25x, and HYPE 20x. This matches the high-leverage rolling style while avoiding a raw 40x launch profile. It also aligns with the requested BTC/ETH/HYPE rolling-position framing.
 
-## Open Requirement
+## Testnet Validation Status
 
-Live testnet execution still requires the user-provided funded testnet account and API wallet setup. The app now exposes the builder-fee and sample order payloads, but it deliberately does not store private keys in the frontend.
+The funded testnet account and API wallet are now configured for the James Wynn flow. A small real BTC testnet position was opened through the approved API wallet, builder-fee approval is active, and `npm run testnet:agent-flow:audit` verifies the funded account, open BTC position, builder-fee order dry-run, and reduce-only close dry-run. Private keys remain outside the frontend in `.env.local`.
